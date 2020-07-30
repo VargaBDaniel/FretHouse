@@ -28,44 +28,36 @@
 
                 display: flex;
 
+                user-select: none;
+
                 div.base-notes {
                     width: 50px;
                     height: 100%;
 
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
+                    justify-content: space-evenly;
                     
 
                     div.string {
                         width: 100%;
-                        height: 25%;
+                        height: 37.5px;
 
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
 
-                        div.wrapper {
-                            width: 100%;
-                            height: 75%;
+                        background-color: #000000;
+                        border-radius: 50%;
+                        border: solid 1px #484644;
+                        box-sizing: border-box;
 
-                            background-color: #000000;
-                            border-radius: 50%;
-                            border: solid 1px #484644;
-                            box-sizing: border-box;
-
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-
-                            h1 {
-
-                                font-size: 1.5rem;
-                                font-weight: lighter;
-                                color: #fff;
-                                text-align: center;
-                                
-                            }
+                        h1 {
+                            font-size: 1.5rem;
+                            font-weight: lighter;
+                            color: #fff;
+                            text-align: center;
+                            
                         }
                     }
                 }
@@ -79,11 +71,52 @@
                     background-color: #303030;
                 }
 
-                div.notes {
+                div.fingerboard {
                     width: calc(100% - 75px);
                     height: 100%;
 
-                    
+                    display: flex;
+                    flex-direction: row;
+
+                    div.fret {
+                        height: 100%;
+                        width: 50px;
+
+                        margin-right: 10px;
+
+                        display: flex; 
+                        flex-direction: column;
+                        justify-content: space-evenly;
+
+                        div.note {
+                            width: 100%;
+                            height: 37.5px;
+
+                            background-color: #000000;
+                            border-radius: 50%;
+                            border: solid 1px #484644;
+                            box-sizing: border-box;
+
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+
+                            &.half {
+                                background-color: #CCCCCC;
+
+                                h1 {
+                                    color: #000;
+                                }
+                            }
+
+                            h1 {
+                                font-size: 1.5rem;
+                                font-weight: lighter;
+                                color: #fff;
+                                text-align: center;
+                            }
+                        }
+                    }
                 }
             }
         }
