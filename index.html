@@ -17,7 +17,8 @@
 <body>
     <div id="options">
         <label for="instrument">Instrument</label>
-        <select name="instrument" id="instrument">
+        <select name="instrument" id="instrument-selector" onchange="initializeDynamicHTML()">
+                <option selected value>-- select an instrument --</option>
             <option value="4s-bass">4-string Bass</option>
         </select>
     </div>
@@ -29,11 +30,11 @@
                 <option value="cof5">Circle of Fifths</option>
             </select>
             <div class="notes" id="notes">
-                
+                <!-- import dynamic HTML here -->
             </div>
         </div>
         <div class="fretboard" id="fretboard">
-
+            <!-- import dynamic HTML here -->
         </div>
     </div>
 </body>
