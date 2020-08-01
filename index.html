@@ -8,7 +8,11 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style/index.css">
-    <script src="scripts/note_finder.js"></script>
+    <link rel="stylesheet" href="style/notes.css">
+    <link rel="stylesheet" href="style/fretboard.css">
+    
+    <script src="scripts/note_highlight.js"></script>
+    <script src="scripts/import_dynamic_html.js"></script>
 </head>
 <body>
     <div id="options">
@@ -18,80 +22,18 @@
         </select>
     </div>
     <div id="wrapper">
-        <div class="fretboard">
-            <div class="base-notes">
-                <div class="G string">
-                    <h1>G</h1>
-                </div>
-                <div class="D string">
-                    <h1>D</h1>
-                </div>
-                <div class="A string">
-                    <h1>E</h1>
-                </div>
-                <div class="E string">
-                    <h1>A</h1>
-                </div>
+        <div class="note-finder">
+            <label for="scale">Scale:</label>
+            <select name="scale" id="note-scale-selector" onchange="initializeDynamicHTML()">
+                <option selected value>-- select a scale --</option>
+                <option value="cof5">Circle of Fifths</option>
+            </select>
+            <div class="notes" id="notes">
+                
             </div>
-            <div class="separator"></div>
-            <div class="fingerboard">
-                <div class="fret">
-                    <div class="half note">
-                        <h1>A&#9837;</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>E&#9837;</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>B&#9837;</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>F</h1>
-                    </div>
-                </div>
-                <div class="fret">
-                    <div class="whole note">
-                        <h1>A</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>E</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>B</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>G&#9837;</h1>
-                    </div>
-                </div>
-                <div class="fret">
-                    <div class="half note">
-                        <h1>B&#9837;</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>F</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>C</h1>
-                    </div>
-                    <div class="whole note">
-                        <h1>G</h1>
-                    </div>
-                </div>
-                <div class="fret">
-                    <div class="whole note">
-                        <h1>B</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>G&#9837;</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>D&#9837;</h1>
-                    </div>
-                    <div class="half note">
-                        <h1>A&#9837;</h1>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="fretboard" id="fretboard">
+
         </div>
     </div>
 </body>
