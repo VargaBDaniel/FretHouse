@@ -8,12 +8,12 @@ function initializeDynamicHTML() {
         let valueOfSelectedOption = instrumentSelector.options[instrumentSelector.selectedIndex].value;
         let htmlToLoad = "html/" + valueOfSelectedOption + ".html";
     
-        return loadNoteFinderHTML(htmlToLoad, selectorID);
+        loadNoteFinderHTML(htmlToLoad, selectorID);
     } else {
         let valueOfSelectedOption = scaleSelector.options[scaleSelector.selectedIndex].value;
         let htmlToLoad = "html/" + valueOfSelectedOption + ".html";
     
-        return loadNoteFinderHTML(htmlToLoad, selectorID);
+        loadNoteFinderHTML(htmlToLoad, selectorID);
     }
 
 }
@@ -31,8 +31,6 @@ async function loadNoteFinderHTML(htmlToLoad, selectorID) {
 
         //import new HTML
         contentWrapper.insertAdjacentHTML("beforeend", contentElementHTML);
-
-        console.log(selectorID);
     } else {
         let contentWrapper = document.getElementById('notes');
         
@@ -41,8 +39,16 @@ async function loadNoteFinderHTML(htmlToLoad, selectorID) {
 
         //import new HTML
         contentWrapper.insertAdjacentHTML("beforeend", contentElementHTML);
-
-        console.log(selectorID);
+        initializeClickableNotes();
     }
-    
+}
+
+function initializeClickableNotes() {
+    let parentElement = document.getElementById('noteRow');
+
+    let noteElements = Array.from(document.getElementsByClassName('note'));
+
+    noteElements.forEach(note => {
+        note.addEventListener("click", getNoteNameOfClickedElement)
+    });
 }

@@ -1,28 +1,34 @@
-function initializeClickableNotes() {
-    let parentElement = document.getElementById('noteRow');
-
-    let noteElements = Array.from(document.getElementsByClassName('note'));
-
-    noteElements.forEach(note => {
-        note.addEventListener("click", getNoteNameOfClickedElement)
-    });
-}
-
 function getNoteNameOfClickedElement() {
     //get data-note attribute of clicked note
     let clickedElement = event.target;
 
-    if (clickedElement.hasAttribute('data-note')) {
-        let noteName = clickedElement.getAttribute('data-note');
-        console.log(noteName);
-        return highlightNotes(noteName);
+    if(clickedElement.classList.contains('active') || clickedElement.parentElement.classList.contains('active')) {
+        removeActiveClass(clickedElement);
     } else {
-        let noteName = clickedElement.parentElement.getAttribute('data-note');
-        console.log(noteName);
-        return highlightNotes(noteName);
+        if (clickedElement.hasAttribute('data-note')) {
+            let noteName = clickedElement.getAttribute('data-note');
+            clickedElement.classList.add('active');
+            highlightNotes(noteName);
+        } else {
+            let noteName = clickedElement.parentElement.getAttribute('data-note');
+            clickedElement.parentElement.classList.add('active');
+            highlightNotes(noteName);
+        }
+    }
+}
+
+function removeActiveClass(clickedElement) {
+    if (clickedElement.classList.contains('active')) {
+        clickedElement.classList.remove('active');
+    } else if (clickedElement.parentElement.classList.contains('active')) {
+        clickedElement.parentElement.classList.remove('active');
     }
 }
 
 function highlightNotes(noteName) {
-    console.log(noteName);
+    let correctNotes = document.querySelectorAll('#fingerboard .note[data-note=' + noteName + ']');
+    
+    correctNotes.forEach(note => {
+        note.classList.add('active');
+    });
 }

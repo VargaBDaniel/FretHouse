@@ -1,0 +1,40 @@
+.note {
+    &.active {
+        &[data-note="C"] {
+            background-color: #66a537 !important;
+        }
+        &[data-note="F"] {
+            background-color: #0678d1 !important;
+        }
+        &[data-note="Bf"] {
+            background-color: #3aa896 !important;
+        }
+        &[data-note="Ef"] {
+            background-color: #9f1161 !important;
+        }
+        &[data-note="Af"] {
+            background-color: #b3b34c !important;
+        }
+        &[data-note="Df"] {
+            background-color: #5698a0 !important;
+        }
+        &[data-note="Gf"] {
+            background-color: #a73b73 !important;
+        }
+        &[data-note="B"] {
+            background-color: #89a56c !important;
+        }
+        &[data-note="E"] {
+            background-color: #dd1747 !important;
+        }
+        &[data-note="A"] {
+            background-color: #ae9a7e !important;
+        }
+        &[data-note="D"] {
+            background-color: #08f9b1 !important;
+        }
+        &[data-note="G"] {
+            background-color: #dc8c5a !important;
+        }
+    }
+}
