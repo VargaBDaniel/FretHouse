@@ -44,9 +44,7 @@ async function loadNoteFinderHTML(htmlToLoad, selectorID) {
 }
 
 function initializeClickableNotes() {
-    let parentElement = document.getElementById('noteRow');
-
-    let noteElements = Array.from(document.getElementsByClassName('note'));
+    let noteElements = Array.from(document.querySelectorAll('#noteRow > .note'));
 
     noteElements.forEach(note => {
         note.addEventListener("click", getNoteNameOfClickedElement)

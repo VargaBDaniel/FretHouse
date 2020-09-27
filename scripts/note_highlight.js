@@ -20,8 +20,10 @@ function getNoteNameOfClickedElement() {
 function removeActiveClass(clickedElement) {
     if (clickedElement.classList.contains('active')) {
         clickedElement.classList.remove('active');
+        removeHighlight(clickedElement.getAttribute('data-note'));
     } else if (clickedElement.parentElement.classList.contains('active')) {
         clickedElement.parentElement.classList.remove('active');
+        removeHighlight(clickedElement.parentElement.getAttribute('data-note'));
     }
 }
 
@@ -30,5 +32,13 @@ function highlightNotes(noteName) {
     
     correctNotes.forEach(note => {
         note.classList.add('active');
+    });
+}
+
+function removeHighlight(noteName) {
+    let correctNotes = document.querySelectorAll('#fingerboard .note[data-note=' + noteName + ']');
+    
+    correctNotes.forEach(note => {
+        note.classList.remove('active');
     });
 }
