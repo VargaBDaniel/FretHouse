@@ -1,9 +1,4 @@
 div.fretboard {
-  width: 100%;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -57,7 +52,7 @@ div.fretboard div.base-notes div.string h1 {
 div.fretboard div.separator {
   width: 5px;
   height: 100%;
-  margin: 0 10px;
+  margin: 0 5px;
   background-color: #303030;
 }
 
@@ -71,6 +66,7 @@ div.fretboard div.fingerboard {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  overflow-y: visible;
 }
 
 div.fretboard div.fingerboard div.fret {
@@ -87,6 +83,12 @@ div.fretboard div.fingerboard div.fret {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  overflow: visible;
+  position: relative;
+}
+
+div.fretboard div.fingerboard div.fret:first-child div.note::before {
+  border-left: none;
 }
 
 div.fretboard div.fingerboard div.fret div.note {
@@ -107,6 +109,8 @@ div.fretboard div.fingerboard div.fret div.note {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: visible;
+  position: relative;
 }
 
 div.fretboard div.fingerboard div.fret div.note.half {
@@ -122,5 +126,33 @@ div.fretboard div.fingerboard div.fret div.note h1 {
   font-weight: lighter;
   color: #fff;
   text-align: center;
+}
+
+div.fretboard div.fingerboard div.fret div.note::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 30px);
+  width: 60px;
+  height: 48px;
+  border: 1px solid #484644;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: -100;
+}
+
+div.fretboard div.fingerboard div.fret div.note:last-of-type::before {
+  all: unset;
+}
+
+div.fretboard div.fingerboard div.fret h2.fret-label {
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  bottom: -20px;
+  left: calc(50% - 50px);
+  text-align: center;
+  font-weight: 100;
+  font-size: 20px;
 }
 /*# sourceMappingURL=fretboard.css.map */
