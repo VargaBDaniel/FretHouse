@@ -39,11 +39,18 @@
 
             div.fretboard {
                 width: 1000px;
-                height: 200px;
-
+                min-height: 180px;
+            
                 border: none;
 
                 display: flex;
+
+                &._4s {
+                    height: 180px;
+                }
+                &._6s {
+                    height: 260px;
+                }
             }
         }
     }

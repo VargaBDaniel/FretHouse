@@ -6,25 +6,38 @@ function initializeDynamicHTML() {
     
     if (selectorID === 'instrument-selector') {
         let valueOfSelectedOption = instrumentSelector.options[instrumentSelector.selectedIndex].value;
+        let stringNumber = valueOfSelectedOption.slice(0, 2);
+        console.log(stringNumber);
         let htmlToLoad = "html/" + valueOfSelectedOption + ".html";
     
-        loadNoteFinderHTML(htmlToLoad, selectorID);
+        loadNoteFinderHTML(htmlToLoad, selectorID, stringNumber);
     } else {
         let valueOfSelectedOption = scaleSelector.options[scaleSelector.selectedIndex].value;
+        let stringNumber = valueOfSelectedOption.slice(0, 2);
+        console.log(stringNumber);
         let htmlToLoad = "html/" + valueOfSelectedOption + ".html";
     
-        loadNoteFinderHTML(htmlToLoad, selectorID);
+        loadNoteFinderHTML(htmlToLoad, selectorID, stringNumber);
     }
 
 }
 
-async function loadNoteFinderHTML(htmlToLoad, selectorID) {
+async function loadNoteFinderHTML(htmlToLoad, selectorID, stringNumber) {
     //fetch htmlToLoad
     const contentElement = await fetch(htmlToLoad);
     const contentElementHTML = await contentElement.text();
+    
+    stringNumber = '_' + stringNumber;
+    console.log(stringNumber);
+    const stringClass = new RegExp(/[_]\d+[s]/);
 
     if (selectorID === 'instrument-selector') {
         let contentWrapper = document.getElementById('fretboard');
+
+        if (contentWrapper.className.match(stringClass)) {
+            contentWrapper.className = contentWrapper.className.replace(stringClass, '');
+        }
+        contentWrapper.classList.add(stringNumber);
 
         //remove previously imported HTML
         contentWrapper.innerHTML = '';

@@ -42,10 +42,18 @@
 
 * body div#wrapper div.fretboard {
   width: 1000px;
-  height: 200px;
+  min-height: 180px;
   border: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+* body div#wrapper div.fretboard._4s {
+  height: 180px;
+}
+
+* body div#wrapper div.fretboard._6s {
+  height: 260px;
 }
 /*# sourceMappingURL=index.css.map */
